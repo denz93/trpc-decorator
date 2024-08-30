@@ -1,0 +1,39 @@
+{
+	"name": "trpc-decorator",
+	"version": "0.1.0",
+	"author": {
+		"url": "https://github.com/denz93",
+		"name": "Nhan Bach"
+	},
+	"scripts": {
+		"build": "rm -rf dist && tsc",
+		"dev": "ts-node src/index.ts",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"generate:types": "ts-node src/scripts/generator.ts"
+	},
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"bin": {
+		"trpc-decorator-gen": "dist/scripts/generator.ts"
+	},
+	"devDependencies": {
+		"@trpc/server": "11.0.0-rc.466",
+		"@types/node": "^20.14.11",
+		"@types/yargs": "^17.0.33",
+		"reflect-metadata": "^0.2.2",
+		"ts-node": "^10.9.2",
+		"tsyringe": "^4.8.0",
+		"vitest": "^2.0.4",
+		"zod": "^3.23.8"
+	},
+	"peerDependencies": {
+		"@trpc/server": "11.0.0-rc.466",
+		"reflect-metadata": "^0.2.2",
+		"tsyringe": "^4.8.0"
+	},
+	"dependencies": {
+		"typescript": "^5.5.4",
+		"yargs": "^17.7.2"
+	}
+}

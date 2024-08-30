@@ -1,0 +1,1 @@
+export { useDecorators, createTrpcDecoratorRoutes } from "./adapter";
