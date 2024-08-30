@@ -1,11 +1,11 @@
-# TRPC Decorator
+# tRPC Decorator
 
-A library to simplify building TRPC routes using decorator syntax, enhancing ease of use and compatibility with Dependency Injection paradigms like TSyringe.
+A library to simplify building [tRPC](https://github.com/trpc/trpc) routes using decorator syntax, enhancing ease of use and compatibility with Dependency Injection paradigms like [TSyringe](https://github.com/microsoft/tsyringe).
 
 ## Benefits
 
-- Class-style declaration of TRPC routes
-- Better integration with Dependency-Injection paradigms (e.g., TSyringe)
+- Class-style declaration of [tRPC](https://github.com/trpc/trpc) routes
+- Better integration with Dependency-Injection paradigms (e.g., [TSyringe](https://github.com/microsoft/tsyringe))
 - Improved code organization and readability
 
 ## Installation
@@ -40,7 +40,7 @@ Ensure the following configurations are set in your project:
 
 ## Usage
 
-### Setting up TRPC and decorators
+### Setting up tRPC and decorators
 
 ```typescript
 // server/trpc.ts
