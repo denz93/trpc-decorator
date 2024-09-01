@@ -11,7 +11,7 @@ A library to simplify building [tRPC](https://github.com/trpc/trpc) routes using
 ## Installation
 
 ```bash
-npm install @denz93/trpc-decorator
+npm install trpc-decorator
 ```
 
 ## Requirements
@@ -45,7 +45,7 @@ Ensure the following configurations are set in your project:
 ```typescript
 // server/trpc.ts
 import { initTRPC } from '@trpc/server';
-import { useDecorators } from "@denz93/trpc-decorator";
+import { useDecorators } from "trpc-decorator";
 
 const t = initTRPC.create();
 
@@ -88,7 +88,7 @@ export class TestRoute {
 ```typescript
 // server/_app.ts
 import { router } from './trpc';
-import { createTrpcDecoratorRoutes } from "@denz93/trpc-decorator";
+import { createTrpcDecoratorRoutes } from "trpc-decorator";
 import { RouteControllerType } from "./types-generated";
 import { TestRoute } from './TestRoute';
 
