@@ -4,7 +4,7 @@ import { z } from "zod";
 @decorators.route()
 export class TestRoute {
     @decorators.query("public")
-    sayHello(@input(z.string()) name: string) {
+    sayHello(@decorators.input(z.string()) name: string) {
         return `Hello ${name}! How are you?`
     }
 
@@ -17,7 +17,6 @@ export class TestRoute {
 
     }
 
-    // @ts-expect-error
     @decorators.query("auth")
     whoAmI(@decorators.context()ctx: any) {
         return `You are ${ctx.user.name}`
