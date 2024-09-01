@@ -1,10 +1,11 @@
 {
 	"name": "trpc-decorator",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": {
 		"url": "https://github.com/denz93",
 		"name": "Nhan Bach"
 	},
+	"keywords": ["trpc", "decorator", "typescript", "declarative"],
 	"scripts": {
 		"build": "rm -rf dist && tsc",
 		"dev": "ts-node src/index.ts",
@@ -15,7 +16,7 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"bin": {
-		"trpc-decorator-gen": "dist/scripts/generator.ts"
+		"trpc-decorator-gen": "dist/scripts/generator.js"
 	},
 	"devDependencies": {
 		"@trpc/server": "11.0.0-rc.466",
