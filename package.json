@@ -1,6 +1,6 @@
 {
 	"name": "trpc-decorator",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"author": {
 		"url": "https://github.com/denz93",
 		"name": "Nhan Bach"
@@ -52,7 +52,6 @@
 		"reflect-metadata": ">=0.2.2"
 	},
 	"dependencies": {
-		"ts-morph": "^23.0.0",
 		"yargs": "^17.7.2"
 	},
 	"license": "MIT"
