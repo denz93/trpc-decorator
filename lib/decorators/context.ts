@@ -1,7 +1,9 @@
 import { defineContext } from "../utils/metadata";
 
-export default function context<T>() {
-    return function<T> (target: object, propertyKey: string, parameterIndex: number) {
+// @ts-ignore
+export default function context<_T>() {
+    // @ts-ignore
+    return <_T> (target: object, propertyKey: string, parameterIndex: number) => {
         defineContext(target, propertyKey, parameterIndex)
     }
 }

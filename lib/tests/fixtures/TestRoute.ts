@@ -18,6 +18,7 @@ export class TestRoute {
     }
 
     @decorators.query("auth")
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     whoAmI(@decorators.context()ctx: any) {
         return `You are ${ctx.user.name}`
     }

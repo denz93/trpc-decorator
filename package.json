@@ -1,40 +1,58 @@
 {
 	"name": "trpc-decorator",
-	"version": "0.1.2",
+	"version": "0.1.4",
 	"author": {
 		"url": "https://github.com/denz93",
 		"name": "Nhan Bach"
 	},
-	"keywords": ["trpc", "decorator", "typescript", "declarative"],
+	"keywords": [
+		"trpc",
+		"decorator",
+		"typescript",
+		"declarative"
+	],
 	"scripts": {
-		"build": "rm -rf dist && tsc",
+		"build": "pnpm clean && pnpm build:cjs && pnpm build:esm5",
+		"build:cjs": "tsc",
+		"build:esm5": "tsc -p ./typescript/tsconfig.esm5.json",
 		"dev": "ts-node src/index.ts",
+		"clean": "rimraf ./dist",
 		"test": "vitest run",
 		"test:watch": "vitest",
-		"generate:types": "ts-node src/scripts/generator.ts"
+		"generate:types": "ts-node src/scripts/generator.ts",
+		"lint": "eslint ./lib"
 	},
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "./dist/cjs/index.js",
+	"module": "./dist/esm5/index.js",
+	"types": "./dist/cjs/index.d.ts",
 	"bin": {
-		"trpc-decorator-gen": "dist/scripts/generator.js"
+		"trpc-decorator-gen": "./dist/esm5/scripts/generator.js"
 	},
 	"devDependencies": {
-		"@trpc/server": "11.0.0-rc.466",
+		"@eslint/js": "^9.12.0",
+		"@trpc/server": "^10.45.2",
+		"@types/eslint__js": "^8.42.3",
 		"@types/node": "^20.14.11",
 		"@types/yargs": "^17.0.33",
+		"@typescript-eslint/eslint-plugin": "^8.8.1",
+		"@typescript-eslint/parser": "^8.8.1",
+		"eslint": "^9.12.0",
+		"eslint-plugin-unused-imports": "^4.1.4",
 		"reflect-metadata": "^0.2.2",
+		"rimraf": "^6.0.1",
 		"ts-node": "^10.9.2",
 		"tsyringe": "^4.8.0",
+		"typescript": "^5.5.4",
+		"typescript-eslint": "^8.8.1",
 		"vitest": "^2.0.4",
 		"zod": "^3.23.8"
 	},
 	"peerDependencies": {
-		"@trpc/server": "11.0.0-rc.466",
-		"reflect-metadata": "^0.2.2",
-		"tsyringe": "^4.8.0"
+		"@trpc/server": ">=10.0.0",
+		"reflect-metadata": ">=0.2.2"
 	},
 	"dependencies": {
-		"typescript": "^5.5.4",
+		"ts-morph": "^23.0.0",
 		"yargs": "^17.7.2"
 	},
 	"license": "MIT"

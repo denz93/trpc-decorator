@@ -1,14 +1,14 @@
 import "reflect-metadata";
 import { TestRouteWithIoC } from "./fixtures/TestRouteWithIoC";
 import { describe, expect, test } from "vitest";
-import { RouteControllerType } from "./types-generated-2";
+import type { GeneratedRouteTypes } from "./types-generated";
 import { createTrpcDecoratorRoutes } from "../adapter";
 import { container } from "tsyringe";
 import { createCallerFactory, router } from "./fixtures/trpc";
 const instance = container.resolve(TestRouteWithIoC)
 describe("IoC Class Router", () => {
     
-    const classRoutes: RouteControllerType = createTrpcDecoratorRoutes(instance) as RouteControllerType
+    const classRoutes = createTrpcDecoratorRoutes([instance], router) as GeneratedRouteTypes
     const appRouter = router(classRoutes)
     const createClient = createCallerFactory(appRouter)
     const client = createClient({})

@@ -19,7 +19,7 @@ export function printAST(node: ts.Node | undefined, indent = "") {
     
     const name = ts.isIdentifier(node) ? node.text: "";
     console.log(`${indent}${ts.SyntaxKind[node.kind].toString()} - ${name}`)
-    ts.forEachChild(node, child => printAST(child, indent + "  "))
+    ts.forEachChild(node, child => printAST(child, `${indent}  `))
 }
 
 export function getChildNodes(node: ts.Node) {

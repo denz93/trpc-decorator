@@ -1,5 +1,6 @@
 import { initTRPC } from '@trpc/server';
 import { useDecorators } from '../../adapter';
+import type { ContextOf } from '../../utils/types';
 
 
 export function createApp() {
@@ -14,8 +15,8 @@ export function createApp() {
      * that can be used throughout the router
      */
     const router = t.router;
-    
     const procedure = t.procedure;
+    
     const createCallerFactory = t.createCallerFactory
     const authProcedure = procedure.use(async (opts) => {
         return opts.next({
@@ -26,12 +27,14 @@ export function createApp() {
             }
         })
     })
-
+   
     // const decorators = setupTrpcDecorator([procedure, authProcedure])
-    const decorators = useDecorators({
+    const procedureMap = {
         "public": procedure,
         "auth": authProcedure
-    })
+    }
+
+    const decorators = useDecorators(procedureMap)
     return {
         router,
         procedure,
@@ -41,4 +44,5 @@ export function createApp() {
 }
 
 const app = createApp()
+export type contextOf = ContextOf<typeof decorators>;
 export const {router, procedure, createCallerFactory, decorators} = app

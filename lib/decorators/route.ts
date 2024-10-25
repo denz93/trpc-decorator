@@ -1,8 +1,11 @@
 import { defineRoute } from "../utils/metadata"
 
 export default function route(name?: string) {
-    return function (target: any) {
-        if (!name) name = target.name as string;
-        defineRoute(target, name);
+     
+    return (target: object & {name?: string}) => {
+        let routeName = name;
+        if (!routeName) routeName = target.name as string;
+        
+        defineRoute(target, routeName);
     }
 }

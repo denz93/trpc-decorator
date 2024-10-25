@@ -1,4 +1,4 @@
-import { inject, injectable, autoInjectable } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 import { decorators } from "./trpc";
 import { z } from "zod";
 

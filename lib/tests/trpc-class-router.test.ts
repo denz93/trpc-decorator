@@ -1,18 +1,19 @@
 import "reflect-metadata";
 import { describe, expect, test } from "vitest";
 import { createTrpcDecoratorRoutes } from "../adapter";
-import {RouteControllerType} from "./types-generated";
+import type {GeneratedRouteTypes} from "./types-generated";
 import {TestRoute} from "./fixtures/TestRoute";
 import {router, createCallerFactory} from "./fixtures/trpc";
 
 describe("TRPC Class Router", () => {
-    const classRoutes: RouteControllerType = createTrpcDecoratorRoutes(new TestRoute()) as RouteControllerType
+    const classRoutes = createTrpcDecoratorRoutes([new TestRoute()], router) as GeneratedRouteTypes
     const appRouter = router(classRoutes)
     const createClient = createCallerFactory(appRouter)
     const client = createClient({})
+
     
     test("Router should be defined", async () => {
-        expect(client["TestRoute"]).toBeDefined()
+        expect(client.TestRoute).toBeDefined()
         
     })
 
